@@ -1,0 +1,11 @@
+@import '../../../../../dist/scss/root.scss';
+main {
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: center;
+
+    .total-washes{
+        margin-bottom: 100px;
+        
+    }
+}

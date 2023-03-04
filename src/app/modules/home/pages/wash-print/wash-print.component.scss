@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 99%;
+
+    h2 {
+        margin-top: 10px;
+    }
+    
+    table {
+        align-self: center;
+        margin-top: 10px;
+    }
+
+    td {
+        border-right: none;
+        border-left: none;
+        padding: 5px;
+    }
+
+    .footer {
+        margin-top: 10px;
+
+        width: 100%;
+
+        display:flex;
+        flex-flow: wrap row;
+        justify-content: space-around;
+
+        &.buttons{
+            width: 70%;
+        }
+    }
+    
+
+}

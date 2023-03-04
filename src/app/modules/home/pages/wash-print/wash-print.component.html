@@ -1,0 +1,29 @@
+<table border="1">
+    <thead>
+      <tr>
+        <th *ngFor="let header of _object.keys(dataSource[0]); index as i">{{header}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of dataSource; index as i">
+        <td *ngFor="let objKey of _object.keys(row); index as j"> 
+          {{ row[objKey] }} 
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+<section class="footer">
+    <div>
+        Total de lavagens: <strong>{{totalWashes}}</strong>
+    </div>
+    <div>
+        Valor Total das Lavages: <strong>R$ {{totalValue}},00</strong>
+    </div>
+</section>
+<h2>
+    {{datenow | date:' dd/MM/yyyy - hh:mm'}}
+</h2>
+<div class="buttons">
+    <button (click)="print()"> imprimir </button> <a href=""><button> Voltar Para o App</button></a>
+</div>

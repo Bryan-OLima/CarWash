@@ -1,0 +1,85 @@
+<form class="form">
+    <mat-form-field color="accent">
+        <mat-label color="accent">Id</mat-label>
+    <input 
+        matInput 
+        [value]="generatedId" 
+        readonly
+        >
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <mat-label>Carro</mat-label>
+    <input 
+        matInput 
+        [placeholder]="placeholder" 
+        [(ngModel)]="car"
+        [ngModelOptions]="{standalone: true}"
+        maxlength="30"
+        >
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <mat-label>Entrada</mat-label>
+    <input 
+        matInput 
+        [value]="getDate | date: 'HH:mm' " 
+        readonly
+        >
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <mat-label>Saída</mat-label>
+    <input 
+        matInput 
+        [placeholder]="placeholder" 
+        [(ngModel)]="exitTime"
+        [ngModelOptions]="{standalone: true}"
+        maxlength="10"
+        >
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <mat-label>Observações</mat-label>
+    <input 
+        matInput 
+        [placeholder]="placeholder" 
+        [(ngModel)]="obs"
+        [ngModelOptions]="{standalone: true}"
+        maxlength="100"
+        >
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <mat-label>Preço</mat-label>
+    <input 
+        matInput 
+        type="number"
+        [placeholder]="placeholder" 
+        [(ngModel)]="price"
+        [ngModelOptions]="{standalone: true}"
+        max="999"
+        >
+    </mat-form-field>
+
+    <mat-form-field color="accent">
+        <mat-label>Placa</mat-label>
+    <input 
+        matInput 
+        [placeholder]="placeholder" 
+        [(ngModel)]="licensePlate"
+        [ngModelOptions]="{standalone: true}"
+        maxlength="8"
+        >
+    </mat-form-field>
+    <div class="buttons">
+        <button mat-raised-button color="accent" *ngIf="!car || !exitTime; else sendButton" disabled>Lançar Lavagem</button>
+
+        <ng-template #sendButton>
+            <button mat-raised-button color="accent" (click)="saveWash()">Lançar Lavagem</button>
+
+        </ng-template>
+
+        <button mat-raised-button (click)="onNoClick()">Cancelar Lavagem</button>
+    </div>
+</form>

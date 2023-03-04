@@ -1,0 +1,28 @@
+@import '../../../../../dist/scss/root.scss';
+:host {
+    color: $tertiary-color;
+
+    .form {
+        display: flex;
+        flex-flow: nowrap column;
+        align-items: center;
+        justify-content: center;
+
+        margin: 20px;
+        margin-top: 30px;
+    }
+
+    .menu {
+        left: 0;
+    }
+
+    mat-form-field, .buttons {
+        width: 95%;
+    }
+
+    .buttons {
+        display:flex;
+        flex-flow: nowrap row;
+        justify-content: space-between;
+    }
+}

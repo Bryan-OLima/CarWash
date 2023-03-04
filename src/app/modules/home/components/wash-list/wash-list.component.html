@@ -1,0 +1,36 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="pos">
+      <th mat-header-cell *matHeaderCellDef> Nº </th>
+      <td mat-cell *matCellDef="let wash; index as i"> {{ i + 1}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="car">
+      <th mat-header-cell *matHeaderCellDef> Carro </th>
+      <td mat-cell *matCellDef="let wash"> {{wash.car}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="entry-time">
+      <th mat-header-cell *matHeaderCellDef> Entrada </th>
+      <td mat-cell *matCellDef="let wash"> {{wash.entryTime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="exit-time">
+        <th mat-header-cell *matHeaderCellDef> Saida </th>
+        <td mat-cell *matCellDef="let wash"> {{ wash.exitTime }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Ações </th>
+      <td mat-cell *matCellDef="let wash; index as i; last as last"> 
+        <button>
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button (click)="deleteItem(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+  </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="columns"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns;"></tr>
+</table>

@@ -1,0 +1,19 @@
+@import '../../../../../dist/scss/root.scss';
+:host {
+    width: 100%;
+
+    mat-toolbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        
+        height: 80px;
+
+        background-color: $primary-font-color;
+
+        .logo {
+            width: 300px;
+            height: auto;
+        }
+    }
+}
