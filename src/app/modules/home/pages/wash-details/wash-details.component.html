@@ -1,14 +1,5 @@
 <form class="form">
     <mat-form-field color="accent">
-        <mat-label color="accent">Id</mat-label>
-    <input 
-        matInput 
-        [value]="generatedId" 
-        readonly
-        >
-    </mat-form-field>
-
-    <mat-form-field color="accent">
         <mat-label>Carro</mat-label>
     <input 
         matInput 
@@ -35,7 +26,7 @@
         [placeholder]="placeholder" 
         [(ngModel)]="exitTime"
         [ngModelOptions]="{standalone: true}"
-        maxlength="10"
+        maxlength="5"
         >
     </mat-form-field>
 
@@ -77,7 +68,6 @@
 
         <ng-template #sendButton>
             <button mat-raised-button color="accent" (click)="saveWash()">Lançar Lavagem</button>
-
         </ng-template>
 
         <button mat-raised-button (click)="onNoClick()">Cancelar Lavagem</button>

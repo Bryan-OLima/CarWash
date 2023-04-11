@@ -1,17 +1,5 @@
 <main>
     <app-header></app-header>
     <app-wash-list></app-wash-list>
-    <div class="total-washes">
-        <app-square-button
-        colorButton="warn"
-        sizeButton="95vw"
-        textButton="Deletar Tudo"
-        (click)="deleteAll()"
-        >
-        </app-square-button>
-        <h1>
-            Total de Lavagens: <strong>{{totalWashes}}</strong>
-        </h1>
-    </div>
-    <app-footer (emitCounter)="incrementId($event)"></app-footer>
+    <app-footer></app-footer>
 </main>

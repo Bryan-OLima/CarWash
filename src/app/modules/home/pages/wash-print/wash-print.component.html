@@ -1,11 +1,11 @@
 <table border="1">
     <thead>
       <tr>
-        <th *ngFor="let header of _object.keys(dataSource[0]); index as i">{{header}}</th>
+        <th *ngFor="let header of _object.keys(wash[0]); index as i">{{header}}</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let row of dataSource; index as i">
+      <tr *ngFor="let row of wash; index as i">
         <td *ngFor="let objKey of _object.keys(row); index as j"> 
           {{ row[objKey] }} 
         </td>

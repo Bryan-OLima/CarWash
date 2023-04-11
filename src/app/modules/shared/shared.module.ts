@@ -16,6 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { FabButtonComponent } from './components/fab-button/fab-button.component';
 import { SquareButtonComponent } from './components/square-button/square-button.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -35,6 +36,7 @@ import { SquareButtonComponent } from './components/square-button/square-button.
     MatDialogModule,
     MatFormFieldModule,
     MatToolbarModule,
+    RouterModule
   ],
   exports: [
     FabButtonComponent,

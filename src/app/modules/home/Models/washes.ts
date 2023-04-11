@@ -1,5 +1,5 @@
 export interface Wash {
-    id: string;
+    id?: string;
     car: string;
     entryTime: string;
     exitTime: string;

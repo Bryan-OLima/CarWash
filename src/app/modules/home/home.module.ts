@@ -11,9 +11,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { SharedModule } from '../shared/shared.module';
 import { WashPrintComponent } from './pages/wash-print/wash-print.component';
 
-
-
-
 @NgModule({
   declarations: [
     WashListComponent,

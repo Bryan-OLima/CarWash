@@ -1,6 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
-import { WASH_MOCK } from '../../mock/washmock';
 import { Wash } from '../../Models/washes';
+import { WashService } from 'src/app/services/wash.service';
 
 @Component({
   selector: 'app-home',
@@ -8,26 +8,31 @@ import { Wash } from '../../Models/washes';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements DoCheck, OnInit{
-  public counter: string = '';
-  public getCounter: any = localStorage.getItem('counter');
+  // public counter: string = '';
+  // public getCounter: any = localStorage.getItem('counter');
 
-  public dataSource: Array<Wash> = WASH_MOCK;
+  public dataSource!: Array<Wash>;
   
-  public totalWashes: number = this.dataSource.length;
-  
+  constructor(private _service: WashService) {}
+
   ngOnInit():void {
-    this.totalWashes
+    this.getAll();
   }
 
   ngDoCheck():void {
+    this.dataSource;
   }
 
-  incrementId(newId: string){
-    this.counter = newId;
-  }
-
-  deleteAll() {
-    this.dataSource = [];
+  getAll(){
+    this._service.getWash()
+      .subscribe({
+        next: (res) => {
+          this.dataSource = res;
+        },
+        error: () => {
+          console.log("Não foi possível acessar a api");
+        }
+      });
   }
 
 }

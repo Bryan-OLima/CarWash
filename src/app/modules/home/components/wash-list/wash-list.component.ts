@@ -1,26 +1,61 @@
-import { Component, DoCheck, Input, OnInit } from '@angular/core';
-import { WASH_MOCK } from '../../mock/washmock';
+import { Component, OnInit } from '@angular/core';
 import { Wash } from '../../Models/washes';
+import { WashService } from 'src/app/services/wash.service';
 
 @Component({
   selector: 'app-wash-list',
   templateUrl: './wash-list.component.html',
   styleUrls: ['./wash-list.component.scss']
 })
-export class WashListComponent implements OnInit, DoCheck{
-  @Input() public dataSource: Array<Wash> = WASH_MOCK;
+export class WashListComponent implements OnInit{
+
+  public dataSource!: Array<Wash>;
+  public wash!: Wash;
+
   columns: string[] = ['pos','car', 'entry-time', 'exit-time', 'actions'];
 
-  public counter: number = 0;
+  constructor(private _service: WashService) {}
 
   ngOnInit():void {
+    this.getAll();
   }
 
-  ngDoCheck(): void {
+  getAll(){
+    this._service.getWash()
+      .subscribe(
+        {
+          next: (res) => {
+            this.dataSource = res;
+          },
+          error: () => {
+
+          }
+        }
+      );
   }
 
-  deleteItem(index: number) {
+  getById(id: number){
+    this._service.getWashById(id)
+      .subscribe(
+        {
+          next: (res) => {
+            this.wash = res
+          },
+          error: () => {} 
+        }
+      );
+  }
+
+  delete(id: number, index: number){
+    console.log(id);
     this.dataSource.splice(index, 1);
+    this._service.deleteWash(id).subscribe(
+      {
+        next: () => {
+          this.getAll();
+          console.log("delete succefully");
+        },
+      }
+    );
   }
-
 }

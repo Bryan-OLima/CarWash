@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { WASH_MOCK } from '../../mock/washmock';
+import { Component, OnInit } from '@angular/core';
+import { WashService } from 'src/app/services/wash.service';
 
 @Component({
   selector: 'app-wash-print',
@@ -7,24 +7,39 @@ import { WASH_MOCK } from '../../mock/washmock';
   styleUrls: ['./wash-print.component.scss']
 })
 export class WashPrintComponent implements OnInit{
-  @Input() public dataSource: Array<any> = WASH_MOCK;
-  _object = Object
+  public wash!: Array<any>;
+  _object = Object;
 
   public totalValue: number = 0;
   public datenow: Date = new Date();
-  public totalWashes: number = this.dataSource.length;
+  public totalWashes: number = this.wash.length;
+
+  constructor(private _service: WashService ){}
 
   ngOnInit():void {
-    this.calcTotalValue();
+    this.getData();
+  }
+
+  getData(){
+    this._service.getWash()
+      .subscribe({
+        next: (res) => {
+          this.wash = res;
+          this.calcTotalValue();
+        },
+        error: () => {
+          console.log('Não foi possível conectar a api');
+        }
+      });
+  }
+
+  calcTotalValue(){
+    for (let i = 0; i < this.wash.length; i++) {
+      this.totalValue += this.wash[i].price;
+    }
   }
 
   print() {
     window.print();
-  }
-
-  calcTotalValue(){
-    for (let i = 0; i < this.dataSource.length; i++) {
-      this.totalValue += this.dataSource[i].price;
-    }
   }
 }
