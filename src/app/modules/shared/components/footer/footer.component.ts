@@ -1,4 +1,4 @@
-import { Component, DoCheck, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { WashDetailsComponent } from 'src/app/modules/home/pages/wash-details/wash-details.component';
 @Component({

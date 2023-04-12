@@ -37,26 +37,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    }
 
-    mat-icon {
-        font-size: 50px;
-        color: $secondary-color;
-
-        width: 100px;
-        height: 100px;
-
-        &.circle-btn {
-            width:200px;
-            height: 160px;
-
-            font-size: 85px;
-
-            margin-bottom:5px;
-        }
-
-        &:hover {
-            cursor: pointer;
+        mat-icon {
+            font-size: 45px;
+            color: $secondary-color;
+    
+            width: 100px;
+            height: 97px;
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 

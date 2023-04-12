@@ -29,13 +29,18 @@ export class WashDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.generatedId;
+
   }
 
   saveLocalStorage(value:any){
     localStorage.setItem('counter', JSON.stringify(value));
   }
 
+  onNoClick(): void {
+    this.clearInputs();
+    this.dialogRef.close();
+    location.reload();
+  }
   clearInputs(){
     this.getDate = '';
     this.car = '';
@@ -43,12 +48,6 @@ export class WashDetailsComponent implements OnInit {
     this.obs = '';
     this.price = 0;
     this.licensePlate = '';
-  }
-
-  onNoClick(): void {
-    this.clearInputs();
-    this.dialogRef.close();
-    location.reload();
   }
 
   saveWash(){
@@ -65,6 +64,10 @@ export class WashDetailsComponent implements OnInit {
       .subscribe({
           next: () => {
             console.log(`${this.wash} foi adicionado com sucesso`);
+
+            setTimeout(() => {
+              location.reload();
+            }, 1000);
           },
           error: () => {
             console.log(`Erro a se comunicar com a api`);
@@ -72,8 +75,8 @@ export class WashDetailsComponent implements OnInit {
         }
       );
       
-    this.clearInputs();
-    this.dialogRef.close();
-    location.reload();
+    // this.clearInputs();
+    // this.dialogRef.close();
+    
   }
 }

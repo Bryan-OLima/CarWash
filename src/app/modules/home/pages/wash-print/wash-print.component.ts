@@ -12,7 +12,7 @@ export class WashPrintComponent implements OnInit{
 
   public totalValue: number = 0;
   public datenow: Date = new Date();
-  public totalWashes: number = this.wash.length;
+  // public totalWashes: number = this.wash.length;
 
   constructor(private _service: WashService ){}
 

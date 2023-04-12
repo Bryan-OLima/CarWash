@@ -15,15 +15,16 @@
 
 <section class="footer">
     <div>
-        Total de lavagens: <strong>{{totalWashes}}</strong>
+        Total de lavagens: <strong>{{wash.length}}</strong>
     </div>
     <div>
-        Valor Total das Lavages: <strong>R$ {{totalValue}},00</strong>
+        Valor Total das Lavagens: <strong>R$ {{totalValue}},00</strong>
     </div>
 </section>
 <h2>
     {{datenow | date:' dd/MM/yyyy - hh:mm'}}
 </h2>
 <div class="buttons">
-    <button (click)="print()"> imprimir </button> <a href=""><button> Voltar Para o App</button></a>
+    <button (click)="print()"> imprimir </button>
+    <a href=""><button> Voltar Para o App</button></a>
 </div>
